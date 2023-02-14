@@ -1,0 +1,18 @@
+{%extends "base.html" %}
+
+{%block content%}
+    <h2>Login Here!</h2>
+    <form method="post">
+        {%csrf_token%} 
+        {{form}}
+        <div class ="submit-button login-form-submit">
+        <input type="submit" value="Login">
+        </div>
+    </form>
+    <ul class ="Login-Options">
+        <li class="change-pass-nav-item"><a  href="{% url 'password_reset' %}">Reset Password</a></li>
+        <li class="back-to-dashboard-nav-item"><a href="{% url 'dashboard' %}">back to dashboard</a></li>
+        <li class="register-nav-item"><a href="{% url 'register' %}">Register</a></li>
+    </ul>
+{%endblock%}
+

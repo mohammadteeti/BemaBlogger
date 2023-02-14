@@ -1,0 +1,13 @@
+{%extends "base.html"%}
+{%load static%}
+
+{%block content%}
+<div class ="project-div">
+    <h1 class="project-header">{{project.title}}</h1>
+    <p class="project-description">{{project.description}}</p>
+    <p class="project-technology">{{project.technology}}</p>
+    <div>          <!--  here use media.urls-->
+        <img src="{%static '/img/' %}{{ project.image }}">
+    </div>
+</div>
+{%endblock%}

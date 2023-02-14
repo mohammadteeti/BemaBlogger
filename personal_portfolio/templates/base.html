@@ -1,0 +1,41 @@
+{%load static%}
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}?{% now 'U' %}">
+
+
+        
+        
+    </head>
+    
+    <body>
+        <div class="welcome"><h1>Welcome to Bema Blogger</h1></div>
+        <ul class="navigation">
+            <li><a class ="nav-item Home-active " href="{%url 'project_index'%}">Home</a></li>
+            <li><a class ="nav-item " href="{% url 'blog_index' %}">Blog</a></li>
+            {% if user.is_authenticated %}
+                <li class="change-pass-nav-item"><a class="nav-item " href="{% url 'password_change' %}">Change Password</a></li>
+
+                <li class="Login-nav-item"><a class="nav-item " href="{% url 'logout' %}">Logout</a></li>
+
+                
+            {%else%}
+            <li class="Register-nav-item"><a class="nav-item " href="{% url 'register' %}">Sign-up</a></li>
+            <li class="Login-nav-item"><a class="nav-item " href="{% url 'login' %}">Login</a></li>
+            
+
+            
+            {%endif%}
+            </ul>
+        {%block content%}
+        {%endblock%}
+    </body>
+</html>

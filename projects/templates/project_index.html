@@ -1,0 +1,20 @@
+
+       {%extends "base.html" %}
+       {% load static %}
+       {%block content%}
+        
+       <div class ="project-list">
+        {%for p in projects%}
+         <ul class="list-group">
+            <li class="list-group-item " id="project-title"><a href = "{% url 'project_detail' p.id %}">Title:{{p.title}}</a></li>
+            <li class="list-group-item " >Technology:{{p.technology}}</li>                        <!--  here use media.urls--> 
+            <li class="list-group-item " id="project-img"><div class="project-img">Image:<img src="{%static '/img/'%}{{p.image }}" alt={{p.title}}></div></li><br>
+        </ul>
+    
+    
+        {% endfor %}
+
+    </div>
+
+    
+        {%endblock%}

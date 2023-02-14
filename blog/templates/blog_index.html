@@ -1,0 +1,18 @@
+{%extends "base.html" %}
+{%load static%}
+
+{%block content%}
+
+<div class ="blog-list">
+ {%for post in posts%}
+  <ul class="list-group">
+     <li class="list-group-item " id="post-title"><a href = "{% url 'blog_detail' post.pk %}">Title:{{post.title}}</a></li>
+  </ul>
+
+
+ {% endfor %}
+
+</div>
+
+
+ {%endblock%}
